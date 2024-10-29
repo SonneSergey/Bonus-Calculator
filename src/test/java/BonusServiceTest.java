@@ -34,35 +34,36 @@ public class BonusServiceTest {
         // производим проверку (сравниваем ожидаемый и фактический):
         Assertions.assertEquals(expected, actual);
     }
+
     // Тесты для незарегистрированных пользователей и для случаев, когда сумма меньше 100
-        @Test
-        void shouldCalculateForUnregisteredAndUnderLimit () {
-            BonusService service = new BonusService();
-            // подготавливаем данные:
-            long amount = 1000;
-            boolean registered = false;
-            long expected = 10;
+    @Test
+    void shouldCalculateForUnregisteredAndUnderLimit() {
+        BonusService service = new BonusService();
+        // подготавливаем данные:
+        long amount = 1000;
+        boolean registered = false;
+        long expected = 10;
 
-            // вызываем целевой метод:
-            long actual = service.calculate(amount, registered);
+        // вызываем целевой метод:
+        long actual = service.calculate(amount, registered);
 
-            // производим проверку (сравниваем ожидаемый и фактический):
-            Assertions.assertEquals(expected, actual);
-        }
+        // производим проверку (сравниваем ожидаемый и фактический):
+        Assertions.assertEquals(expected, actual);
+    }
 
-        @Test
-        void shouldCalculateForUnregisteredAndOverLimit () {
-            BonusService service = new BonusService();
-            // подготавливаем данные:
-            long amount = 50_000;
-            boolean registered = false;
-            long expected = 500;
+    @Test
+    void shouldCalculateForUnregisteredAndOverLimit() {
+        BonusService service = new BonusService();
+        // подготавливаем данные:
+        long amount = 50_000;
+        boolean registered = false;
+        long expected = 500;
 
-            //  вызываем целевой метод:
-            long actual = service.calculate(amount, registered);
+        //  вызываем целевой метод:
+        long actual = service.calculate(amount, registered);
 
-            // производим проверку (сравниваем ожидаемый и фактический):
-            Assertions.assertEquals(expected, actual);
+        // производим проверку (сравниваем ожидаемый и фактический):
+        Assertions.assertEquals(expected, actual);
     }
 
     // Тест для случая, когда сумма покупки у незарегистрированного пользователя превышает лимит
@@ -82,4 +83,4 @@ public class BonusServiceTest {
         // производим проверку (сравниваем ожидаемый и фактический):
         Assertions.assertEquals(expected, actual);
     }
-        }
+}
